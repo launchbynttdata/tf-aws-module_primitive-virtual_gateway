@@ -20,7 +20,12 @@ output "arn" {
   value       = module.appmesh_virtual_gateway.arn
 }
 
-output "random_int" {
-  description = "Random Int postfix"
-  value       = random_integer.priority.result
+output "name" {
+  description = "Name of the virtual gateway"
+  value       = module.appmesh_virtual_gateway.name
+}
+
+output "mesh_name" {
+  description = "Name of the Mesh"
+  value       = module.app_mesh.name
 }

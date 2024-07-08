@@ -65,5 +65,6 @@ provider "random" {}
 |------|-------------|
 | <a name="output_id"></a> [id](#output\_id) | ID of the virtual gateway |
 | <a name="output_arn"></a> [arn](#output\_arn) | ARN of the virtual gateway |
-| <a name="output_random_int"></a> [random\_int](#output\_random\_int) | Random Int postfix |
+| <a name="output_name"></a> [name](#output\_name) | Name of the virtual gateway |
+| <a name="output_mesh_name"></a> [mesh\_name](#output\_mesh\_name) | Name of the Mesh |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
