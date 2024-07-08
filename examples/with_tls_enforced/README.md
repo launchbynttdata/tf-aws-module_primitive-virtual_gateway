@@ -29,9 +29,9 @@ No requirements.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_app_mesh"></a> [app\_mesh](#module\_app\_mesh) | git::https://github.com/nexient-llc/tf-aws-module-appmesh | 0.1.0 |
-| <a name="module_private_ca"></a> [private\_ca](#module\_private\_ca) | git::https://github.com/nexient-llc/tf-aws-module-private_ca | 0.1.0 |
-| <a name="module_private_cert"></a> [private\_cert](#module\_private\_cert) | git::https://github.com/nexient-llc/tf-aws-module-acm_private_cert | 0.1.0 |
+| <a name="module_app_mesh"></a> [app\_mesh](#module\_app\_mesh) | git::https://github.com/launchbynttdata/tf-aws-module_primitive-appmesh | 1.0.0 |
+| <a name="module_private_ca"></a> [private\_ca](#module\_private\_ca) | git::https://github.com/launchbynttdata/tf-aws-module_primitive-private_ca | 1.0.0 |
+| <a name="module_private_cert"></a> [private\_cert](#module\_private\_cert) | git::https://github.com/launchbynttdata/tf-aws-module_primitive-acm_private_cert | 1.0.0 |
 | <a name="module_appmesh_virtual_gateway"></a> [appmesh\_virtual\_gateway](#module\_appmesh\_virtual\_gateway) | ../.. | n/a |
 
 ## Resources
