@@ -16,24 +16,28 @@ resource "random_integer" "priority" {
 }
 
 module "app_mesh" {
-  source = "git::https://github.com/launchbynttdata/tf-aws-module_primitive-appmesh?ref=1.0.0"
+  source  = "terraform.registry.launch.nttdata.com/module_primitive/appmesh/aws"
+  version = "~> 1.0"
 
   name = local.app_mesh_name
 }
 
 module "private_ca" {
-  source = "git::https://github.com/launchbynttdata/tf-aws-module_primitive-private_ca?ref=1.0.0"
+  source  = "terraform.registry.launch.nttdata.com/module_primitive/private_ca/aws"
+  version = "~> 1.0"
 
   count = length(var.trust_acm_certificate_authority_arns) == 0 ? 1 : 0
 
-  naming_prefix = local.naming_prefix
-  region        = var.region
-  environment   = var.environment
+  logical_product_family  = var.logical_product_family
+  logical_product_service = local.logical_product_service
+  region                  = var.region
+  environment             = var.environment
 
 }
 
 module "private_cert" {
-  source = "git::https://github.com/launchbynttdata/tf-aws-module_primitive-acm_private_cert?ref=1.0.0"
+  source  = "terraform.registry.launch.nttdata.com/module_primitive/acm_private_cert/aws"
+  version = "~> 1.0"
 
   # Private CA is created if not passed as input
   private_ca_arn = length(var.trust_acm_certificate_authority_arns) == 0 ? module.private_ca[0].private_ca_arn : var.trust_acm_certificate_authority_arns[0]

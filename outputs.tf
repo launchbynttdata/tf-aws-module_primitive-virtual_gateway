@@ -19,3 +19,8 @@ output "arn" {
   description = "ARN of the virtual gateway"
   value       = aws_appmesh_virtual_gateway.this.arn
 }
+
+output "name" {
+  description = "Name of the virtual gateway"
+  value       = aws_appmesh_virtual_gateway.this.name
+}

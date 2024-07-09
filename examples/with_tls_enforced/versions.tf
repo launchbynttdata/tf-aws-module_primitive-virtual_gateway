@@ -9,10 +9,18 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-locals {
-  random_id               = random_integer.priority.result
-  name                    = "${var.logical_product_family}-${var.logical_product_service}-vgw-${local.random_id}"
-  namespace_name          = "example${local.random_id}.local"
-  logical_product_service = "${var.logical_product_service}-${local.random_id}"
-  app_mesh_name           = "${var.logical_product_family}-${var.logical_product_service}-app-mesh-${local.random_id}"
+
+terraform {
+  required_version = ">= 1.5.0, <= 1.5.5"
+
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 5.0"
+    }
+    random = {
+      source  = "hashicorp/random"
+      version = "~> 3.6"
+    }
+  }
 }
