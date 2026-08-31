@@ -20,5 +20,5 @@ func TestVirtualGatewayModule(t *testing.T) {
 		SetTestConfigFileName(infraTFVarFileNameDefault).
 		Build()
 
-	lib.RunNonDestructiveTest(t, *ctx, testimpl.TestVirtualGateway)
+	lib.RunNonDestructiveTest(t, *ctx, testimpl.TestComposableVirtualGateway)
 }

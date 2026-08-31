@@ -27,5 +27,5 @@ func TestVirtualGatewayModule(t *testing.T) {
 		}).
 		Build()
 
-	lib.RunSetupTestTeardown(t, *ctx, testimpl.TestVirtualGateway)
+	lib.RunSetupTestTeardown(t, *ctx, testimpl.TestComposableVirtualGateway)
 }

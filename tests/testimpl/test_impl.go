@@ -12,10 +12,10 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
-func TestVirtualGateway(t *testing.T, ctx types.TestContext) {
+func TestComposableVirtualGateway(t *testing.T, ctx types.TestContext) {
 	appmeshClient := appmesh.NewFromConfig(GetAWSConfig(t))
-	meshName := terraform.Output(t, ctx.TerratestTerraformOptions(), "mesh_name")
-	gwName := terraform.Output(t, ctx.TerratestTerraformOptions(), "name")
+	meshName := terraform.OutputContext(t, context.Background(), ctx.TerratestTerraformOptions(), "mesh_name")
+	gwName := terraform.OutputContext(t, context.Background(), ctx.TerratestTerraformOptions(), "name")
 
 	output, err := appmeshClient.DescribeVirtualGateway(context.TODO(), &appmesh.DescribeVirtualGatewayInput{
 		MeshName:           &meshName,

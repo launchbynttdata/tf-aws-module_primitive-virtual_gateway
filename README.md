@@ -122,19 +122,13 @@ If `make check` target is successful, developer is good to commit the code to pr
 # Know Issues
 Currently, the `encrypt at transit` is not supported in terraform. There is an open issue for this logged with Hashicorp - https://github.com/hashicorp/terraform-provider-aws/pull/26987
 
-<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+<!-- BEGIN_TF_DOCS -->
 ## Requirements
 
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~> 1.0 |
 | <a name="requirement_aws"></a> [aws](#requirement\_aws) | ~> 5.0 |
-
-## Providers
-
-| Name | Version |
-|------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | 5.73.0 |
 
 ## Modules
 
@@ -150,12 +144,13 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_acm_certificate_arn"></a> [acm\_certificate\_arn](#input\_acm\_certificate\_arn) | ARN for the private certificate issued for the Virtual Gateway. | `string` | `null` | no |
 | <a name="input_access_log_path"></a> [access\_log\_path](#input\_access\_log\_path) | The file path to write access logs to. | `string` | `"/dev/stdout"` | no |
+| <a name="input_acm_certificate_arn"></a> [acm\_certificate\_arn](#input\_acm\_certificate\_arn) | ARN for the private certificate issued for the Virtual Gateway. | `string` | `null` | no |
 | <a name="input_backend_file_certificate_chain"></a> [backend\_file\_certificate\_chain](#input\_backend\_file\_certificate\_chain) | The certificate chain for the certificate. | `string` | `null` | no |
 | <a name="input_backend_file_private_key"></a> [backend\_file\_private\_key](#input\_backend\_file\_private\_key) | The private key for a certificate stored on the file system of the virtual node that the proxy is running on. | `string` | `null` | no |
 | <a name="input_backend_sds_secret_name"></a> [backend\_sds\_secret\_name](#input\_backend\_sds\_secret\_name) | The name of the secret for the certificate. | `string` | `null` | no |
 | <a name="input_backend_subject_alternative_names_exact"></a> [backend\_subject\_alternative\_names\_exact](#input\_backend\_subject\_alternative\_names\_exact) | The exact names to match. | `list(string)` | `[]` | no |
+| <a name="input_client_tls_enforce"></a> [client\_tls\_enforce](#input\_client\_tls\_enforce) | Whether the mTLS client policy is enforced. The default is false | `bool` | `false` | no |
 | <a name="input_file_certificate_chain"></a> [file\_certificate\_chain](#input\_file\_certificate\_chain) | The certificate chain for the certificate. | `string` | `null` | no |
 | <a name="input_file_private_key"></a> [file\_private\_key](#input\_file\_private\_key) | The private key for a certificate stored on the file system of the virtual node that the proxy is running on. | `string` | `null` | no |
 | <a name="input_grpc_max_requests"></a> [grpc\_max\_requests](#input\_grpc\_max\_requests) | Maximum number of inflight requests Envoy can concurrently support across all backends. | `number` | `null` | no |
@@ -163,9 +158,9 @@ No modules.
 | <a name="input_health_check_port"></a> [health\_check\_port](#input\_health\_check\_port) | The destination port for the health check request. | `number` | `8080` | no |
 | <a name="input_health_check_protocol"></a> [health\_check\_protocol](#input\_health\_check\_protocol) | The protocol for the health check request. Must be one of [http http2 grpc]. | `string` | `"http"` | no |
 | <a name="input_healthy_threshold"></a> [healthy\_threshold](#input\_healthy\_threshold) | The number of consecutive successful health checks required before considering an unhealthy target healthy. | `number` | `5` | no |
+| <a name="input_http2_max_requests"></a> [http2\_max\_requests](#input\_http2\_max\_requests) | Maximum number of inflight requests Envoy can concurrently support across all backends. | `number` | `null` | no |
 | <a name="input_http_max_connections"></a> [http\_max\_connections](#input\_http\_max\_connections) | Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster. | `number` | `null` | no |
 | <a name="input_http_max_pending_requests"></a> [http\_max\_pending\_requests](#input\_http\_max\_pending\_requests) | Maximum number of inflight requests Envoy can concurrently support across all backends. | `number` | `null` | no |
-| <a name="input_http2_max_requests"></a> [http2\_max\_requests](#input\_http2\_max\_requests) | Maximum number of inflight requests Envoy can concurrently support across all backends. | `number` | `null` | no |
 | <a name="input_interval_millis"></a> [interval\_millis](#input\_interval\_millis) | The time period in milliseconds between each health check execution. | `number` | `30000` | no |
 | <a name="input_json_key"></a> [json\_key](#input\_json\_key) | The JSON key. | `string` | `null` | no |
 | <a name="input_json_value"></a> [json\_value](#input\_json\_value) | The JSON value. | `string` | `null` | no |
@@ -175,10 +170,10 @@ No modules.
 | <a name="input_name"></a> [name](#input\_name) | The name to use for the virtual gateway. | `string` | n/a | yes |
 | <a name="input_sds_secret_name"></a> [sds\_secret\_name](#input\_sds\_secret\_name) | The name of the secret for the certificate. | `string` | `null` | no |
 | <a name="input_subject_alternative_names_exact"></a> [subject\_alternative\_names\_exact](#input\_subject\_alternative\_names\_exact) | The exact SAN to match in the request header | `list(string)` | `[]` | no |
+| <a name="input_tags"></a> [tags](#input\_tags) | An arbitrary map of tags that can be added to all resources. | `map(string)` | `{}` | no |
 | <a name="input_text_format"></a> [text\_format](#input\_text\_format) | The text format. | `string` | `null` | no |
 | <a name="input_timeout_millis"></a> [timeout\_millis](#input\_timeout\_millis) | The amount of time to wait when receiving a response from the health check in milliseconds. | `number` | `5000` | no |
 | <a name="input_tls_enforce"></a> [tls\_enforce](#input\_tls\_enforce) | Whether the policy is enforced. The default is True, if a value isn’t specified. | `bool` | `true` | no |
-| <a name="input_client_tls_enforce"></a> [client\_tls\_enforce](#input\_client\_tls\_enforce) | Whether the mTLS client policy is enforced. The default is false | `bool` | `false` | no |
 | <a name="input_tls_mode"></a> [tls\_mode](#input\_tls\_mode) | The mode for the listener’s Transport Layer Security (TLS) configuration. Must be one of DISABLED, PERMISSIVE, STRICT. | `string` | `"DISABLED"` | no |
 | <a name="input_tls_ports"></a> [tls\_ports](#input\_tls\_ports) | If you specify a listener port other than 443, you must specify this field. | `list(number)` | `[]` | no |
 | <a name="input_trust_acm_certificate_authority_arns"></a> [trust\_acm\_certificate\_authority\_arns](#input\_trust\_acm\_certificate\_authority\_arns) | One or more Amazon Resource Names (ARNs). | `list(string)` | `[]` | no |
@@ -187,13 +182,12 @@ No modules.
 | <a name="input_trust_file_certificate_chain"></a> [trust\_file\_certificate\_chain](#input\_trust\_file\_certificate\_chain) | The certificate chain for the certificate. | `string` | `"default"` | no |
 | <a name="input_trust_sds_secret_name"></a> [trust\_sds\_secret\_name](#input\_trust\_sds\_secret\_name) | The name of the secret for the certificate. | `string` | `null` | no |
 | <a name="input_unhealthy_threshold"></a> [unhealthy\_threshold](#input\_unhealthy\_threshold) | The number of consecutive failed health checks that must occur before considering a target unhealthy. | `number` | `2` | no |
-| <a name="input_tags"></a> [tags](#input\_tags) | An arbitrary map of tags that can be added to all resources. | `map(string)` | `{}` | no |
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
-| <a name="output_id"></a> [id](#output\_id) | ID of the virtual gateway |
 | <a name="output_arn"></a> [arn](#output\_arn) | ARN of the virtual gateway |
+| <a name="output_id"></a> [id](#output\_id) | ID of the virtual gateway |
 | <a name="output_name"></a> [name](#output\_name) | Name of the virtual gateway |
-<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+<!-- END_TF_DOCS -->
