@@ -13,6 +13,17 @@ import (
 )
 
 func TestComposableVirtualGateway(t *testing.T, ctx types.TestContext) {
+	verifyVirtualGateway(t, ctx)
+}
+
+// TestComposableVirtualGatewayReadOnly is the readonly-safe counterpart used by
+// tests/post_deploy_functional_readonly. It must remain read-only: describe calls
+// only, no create/update/delete against the deployed infrastructure.
+func TestComposableVirtualGatewayReadOnly(t *testing.T, ctx types.TestContext) {
+	verifyVirtualGateway(t, ctx)
+}
+
+func verifyVirtualGateway(t *testing.T, ctx types.TestContext) {
 	appmeshClient := appmesh.NewFromConfig(GetAWSConfig(t))
 	meshName := terraform.OutputContext(t, context.Background(), ctx.TerratestTerraformOptions(), "mesh_name")
 	gwName := terraform.OutputContext(t, context.Background(), ctx.TerratestTerraformOptions(), "name")
