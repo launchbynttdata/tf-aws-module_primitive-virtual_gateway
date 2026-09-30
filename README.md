@@ -1,4 +1,4 @@
-# tf-aws-module_primitive-appmesh_virtual_gateway
+# tf-aws-module_primitive-virtual_gateway
 
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![License: CC BY-NC-ND 4.0](https://img.shields.io/badge/License-CC_BY--NC--ND_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-nd/4.0/)
@@ -6,10 +6,6 @@
 ## Overview
 
 This terraform module creates a Virtual Gateway in a Service Mesh provided as input.
-
-## Known Issues
-
-Currently, the `encrypt at transit` is not supported in terraform. There is an open issue for this logged with Hashicorp - https://github.com/hashicorp/terraform-provider-aws/pull/26987
 
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
