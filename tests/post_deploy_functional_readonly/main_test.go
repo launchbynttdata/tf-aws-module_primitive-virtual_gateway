@@ -13,12 +13,14 @@ const (
 	infraTFVarFileNameDefault        = "test.tfvars"
 )
 
-func TestVirtualGatewayModule(t *testing.T) {
+// TestVirtualGatewayModuleReadOnly validates deployed infrastructure without
+// creating, mutating, or destroying Terraform-managed resources.
+func TestVirtualGatewayModuleReadOnly(t *testing.T) {
 	ctx := types.CreateTestContextBuilder().
 		SetTestConfig(&testimpl.ThisTFModuleConfig{}).
 		SetTestConfigFolderName(testConfigsExamplesFolderDefault).
 		SetTestConfigFileName(infraTFVarFileNameDefault).
 		Build()
 
-	lib.RunNonDestructiveTest(t, *ctx, testimpl.TestComposableVirtualGateway)
+	lib.RunNonDestructiveTest(t, *ctx, testimpl.TestComposableVirtualGatewayReadOnly)
 }
